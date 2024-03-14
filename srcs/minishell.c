@@ -15,7 +15,8 @@
 #include <termios.h>
 
 /*
-** Cette fonction va decider a l'aide de istty si on utilse gnl ou get_input
+	We are using isatty to check if our request is from a terminal or can be executed promptly.
+	Therefore, we will identify if we need to use gnl or get_input_line function instead.
 */
 
 static int	read_next_line(char **line, char **clipboard,
@@ -50,6 +51,11 @@ static int	left_to_read_check(int left_to_read,
 	}
 	return (0);
 }
+
+/*
+	Minishell function is at the core of our project.
+	
+*/
 
 int	minishell(t_list **env_var, t_list *history)
 {
